@@ -2,7 +2,6 @@ package com.workintech.s18d2.service;
 
 import com.workintech.s18d2.entity.Vegetable;
 import com.workintech.s18d2.repository.VegetableRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +11,6 @@ public class VegetableServiceImpl implements VegetableService {
 
     private VegetableRepository vegetableRepository;
 
-    @Autowired
     public VegetableServiceImpl(VegetableRepository vegetableRepository) {
         this.vegetableRepository = vegetableRepository;
     }
@@ -27,6 +25,5 @@ public class VegetableServiceImpl implements VegetableService {
     public List<Vegetable> findAll() {
         return vegetableRepository.findAll();
     }
-
 
 }

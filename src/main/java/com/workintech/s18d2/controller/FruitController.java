@@ -2,11 +2,9 @@ package com.workintech.s18d2.controller;
 
 import com.workintech.s18d2.entity.Fruit;
 import com.workintech.s18d2.service.FruitService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/fruits")
@@ -14,11 +12,9 @@ public class FruitController {
 
     private FruitService fruitService;
 
-    @Autowired
     public FruitController(FruitService fruitService) {
         this.fruitService = fruitService;
     }
-
 
     @PostMapping
     public Fruit save(@RequestBody Fruit fruit) {
@@ -46,6 +42,5 @@ public class FruitController {
         return fruitService.update(id, fruit);
 
     }
-
 
 }

@@ -3,7 +3,6 @@ package com.workintech.s18d2.service;
 import com.workintech.s18d2.entity.Fruit;
 import com.workintech.s18d2.exception.FruitException;
 import com.workintech.s18d2.repository.FruitRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -15,16 +14,13 @@ public class FruitServiceImpl implements FruitService {
 
     private final FruitRepository fruitRepository;
 
-    @Autowired
     public FruitServiceImpl(FruitRepository fruitRepository) {
         this.fruitRepository = fruitRepository;
     }
 
-
     public List<Fruit> getByPriceAsc() {
         return fruitRepository.getByPriceAsc();
     }
-
 
     public List<Fruit> getByPriceDesc() {
         return fruitRepository.getByPriceDesc();
@@ -41,6 +37,7 @@ public class FruitServiceImpl implements FruitService {
         return fruitRepository.findAll();
     }
 
+    @SuppressWarnings("null")
     @Override
     public Fruit findById(Integer id) {
 
@@ -71,6 +68,5 @@ public class FruitServiceImpl implements FruitService {
         fruitRepository.update(id, fruit);
         return findById(id);
     }
-
 
 }

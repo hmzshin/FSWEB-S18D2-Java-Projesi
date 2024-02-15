@@ -1,10 +1,7 @@
 package com.workintech.s18d2.controller;
 
 import com.workintech.s18d2.entity.Vegetable;
-import com.workintech.s18d2.repository.VegetableRepository;
 import com.workintech.s18d2.service.VegetableService;
-import com.workintech.s18d2.service.VegetableServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +12,6 @@ public class VegetableController {
 
     private VegetableService vegetableService;
 
-    @Autowired
     public VegetableController(VegetableService vegetableService) {
         this.vegetableService = vegetableService;
     }
