@@ -4,23 +4,17 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Table(name = "vegetable", schema = "s18d2")
-public class Vegetable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
-
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "price")
-    private Double price;
+@Accessors(chain = true)
+@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
+public class Vegetable extends Plant {
 
     @Column(name = "grown_on_tree")
     private Boolean isGrownOnTree;

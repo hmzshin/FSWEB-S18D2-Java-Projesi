@@ -11,6 +11,8 @@ public interface FruitService {
 
     Fruit findById(Integer id);
 
+    List<Fruit> findByPriceAsc();
+
     Fruit delete(Integer id);
 
     List<Fruit> searchByName(String name);

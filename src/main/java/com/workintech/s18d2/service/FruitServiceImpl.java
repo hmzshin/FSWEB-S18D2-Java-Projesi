@@ -65,8 +65,14 @@ public class FruitServiceImpl implements FruitService {
 
     @Override
     public Fruit update(Integer id, Fruit fruit) {
-        fruitRepository.update(id, fruit);
+        fruit.setId(id);
+        fruitRepository.save(fruit);
         return findById(id);
+    }
+
+    @Override
+    public List<Fruit> findByPriceAsc() {
+        return fruitRepository.getByPriceAsc();
     }
 
 }

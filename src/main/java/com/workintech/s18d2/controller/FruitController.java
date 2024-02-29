@@ -32,6 +32,11 @@ public class FruitController {
         return fruitService.findById(id);
     }
 
+    @GetMapping(path = "/priceasc")
+    public List<Fruit> getByPrice() {
+        return fruitService.findByPriceAsc();
+    }
+
     @DeleteMapping(path = "/{id}")
     public Fruit deleteById(@PathVariable Integer id) {
         return fruitService.delete(id);
