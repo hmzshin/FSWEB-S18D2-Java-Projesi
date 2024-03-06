@@ -9,14 +9,14 @@ public interface FruitService {
 
     List<Fruit> findAll();
 
-    Fruit findById(Integer id);
+    Fruit findById(Long id);
 
     List<Fruit> findByPriceAsc();
 
-    Fruit delete(Integer id);
+    Fruit delete(Long id);
 
     List<Fruit> searchByName(String name);
 
-    Fruit update(Integer id, Fruit fruit);
+    Fruit update(Long id, Fruit fruit);
 
 }

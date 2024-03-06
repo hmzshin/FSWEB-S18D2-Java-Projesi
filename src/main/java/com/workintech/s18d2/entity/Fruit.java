@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "fruit", schema = "s18d2")
+@Table(name = "fruit", schema = "public")
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 public class Fruit extends Plant {

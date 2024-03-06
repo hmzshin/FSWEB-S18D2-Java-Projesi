@@ -10,7 +10,7 @@ import java.util.List;
 @RequestMapping(path = "/vegetables")
 public class VegetableController {
 
-    private VegetableService vegetableService;
+    private final VegetableService vegetableService;
 
     public VegetableController(VegetableService vegetableService) {
         this.vegetableService = vegetableService;

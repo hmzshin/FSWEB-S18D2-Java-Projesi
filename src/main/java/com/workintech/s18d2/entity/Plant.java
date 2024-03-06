@@ -21,7 +21,7 @@ public class Plant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @Size(min = 2, max = 45, message = "Name must be between 2 and 45")
     @NotNull

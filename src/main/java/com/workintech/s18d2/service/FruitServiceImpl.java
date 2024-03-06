@@ -3,6 +3,7 @@ package com.workintech.s18d2.service;
 import com.workintech.s18d2.entity.Fruit;
 import com.workintech.s18d2.exception.FruitException;
 import com.workintech.s18d2.repository.FruitRepository;
+import com.workintech.s18d2.utlity.EntityValidations;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,6 @@ public class FruitServiceImpl implements FruitService {
         return fruitRepository.getByPriceDesc();
     }
 
-    @SuppressWarnings("null")
     @Override
     public Fruit save(Fruit fruit) {
         return fruitRepository.save(fruit);
@@ -37,9 +37,10 @@ public class FruitServiceImpl implements FruitService {
         return fruitRepository.findAll();
     }
 
-    @SuppressWarnings("null")
+
     @Override
-    public Fruit findById(Integer id) {
+    public Fruit findById(Long id) {
+        EntityValidations.isIdValid(id);
 
         Optional<Fruit> fruitOpt = fruitRepository.findById(id);
 
@@ -51,8 +52,7 @@ public class FruitServiceImpl implements FruitService {
     }
 
     @Override
-    @SuppressWarnings("null")
-    public Fruit delete(Integer id) {
+    public Fruit delete(Long id) {
         Fruit foundFruit = findById(id);
         fruitRepository.delete(foundFruit);
         return foundFruit;
@@ -63,8 +63,9 @@ public class FruitServiceImpl implements FruitService {
         return fruitRepository.searchByName(name);
     }
 
+
     @Override
-    public Fruit update(Integer id, Fruit fruit) {
+    public Fruit update(Long id, Fruit fruit) {
         fruit.setId(id);
         fruitRepository.save(fruit);
         return findById(id);

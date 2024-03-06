@@ -10,7 +10,7 @@ import java.util.List;
 @RequestMapping("/fruits")
 public class FruitController {
 
-    private FruitService fruitService;
+    private final FruitService fruitService;
 
     public FruitController(FruitService fruitService) {
         this.fruitService = fruitService;
@@ -28,7 +28,7 @@ public class FruitController {
     }
 
     @GetMapping(path = "/{id}")
-    public Fruit findById(@PathVariable Integer id) {
+    public Fruit findById(@PathVariable Long id) {
         return fruitService.findById(id);
     }
 
@@ -38,14 +38,13 @@ public class FruitController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public Fruit deleteById(@PathVariable Integer id) {
+    public Fruit deleteById(@PathVariable Long id) {
         return fruitService.delete(id);
     }
 
     @PutMapping(path = "/{id}")
-    public Fruit updateById(@PathVariable Integer id, @RequestBody Fruit fruit) {
+    public Fruit updateById(@PathVariable Long id, @RequestBody Fruit fruit) {
         return fruitService.update(id, fruit);
-
     }
 
 }

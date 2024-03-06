@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class VegetableServiceImpl implements VegetableService {
 
-    private VegetableRepository vegetableRepository;
+    private final VegetableRepository vegetableRepository;
 
     public VegetableServiceImpl(VegetableRepository vegetableRepository) {
         this.vegetableRepository = vegetableRepository;
